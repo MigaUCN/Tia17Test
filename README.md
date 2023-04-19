@@ -8,3 +8,6 @@ https://support.industry.siemens.com/cs/document/109797235/simatic-automation-co
 
 TIA Portal Add-Ins
 https://support.industry.siemens.com/cs/document/109773999/tia-portal-add-ins?dti=0&dl=en&lc=it-WW
+
+Vejledning fra Outlier Automation omkring opsætning
+https://youtu.be/gmTNIA9MhJk
