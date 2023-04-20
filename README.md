@@ -11,3 +11,5 @@ https://support.industry.siemens.com/cs/document/109773999/tia-portal-add-ins?dt
 
 Vejledning fra Outlier Automation omkring opsætning
 https://youtu.be/gmTNIA9MhJk
+
+Anvender https://desktop.github.com/, til at opsætte repository, mens alt commit og push fungere igennem TIA med VCI

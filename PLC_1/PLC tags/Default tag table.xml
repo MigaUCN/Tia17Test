@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V17" />
   <DocumentInfo>
-    <Created>2023-04-19T10:28:58.1826206Z</Created>
+    <Created>2023-04-20T08:24:45.9886189Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -335,94 +335,6 @@
           <MultilingualText ID="29" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="2A" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Tags.PlcTag>
-      <SW.Tags.PlcTag ID="2B" CompositionName="Tags">
-        <AttributeList>
-          <DataTypeName>Bool</DataTypeName>
-          <ExternalAccessible>true</ExternalAccessible>
-          <ExternalVisible>true</ExternalVisible>
-          <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%I0.0</LogicalAddress>
-          <Name>Tag_1</Name>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="2C" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="2D" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Tags.PlcTag>
-      <SW.Tags.PlcTag ID="2E" CompositionName="Tags">
-        <AttributeList>
-          <DataTypeName>Bool</DataTypeName>
-          <ExternalAccessible>true</ExternalAccessible>
-          <ExternalVisible>true</ExternalVisible>
-          <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%I0.1</LogicalAddress>
-          <Name>Tag_2</Name>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="2F" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="30" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Tags.PlcTag>
-      <SW.Tags.PlcTag ID="31" CompositionName="Tags">
-        <AttributeList>
-          <DataTypeName>Bool</DataTypeName>
-          <ExternalAccessible>true</ExternalAccessible>
-          <ExternalVisible>true</ExternalVisible>
-          <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%Q0.0</LogicalAddress>
-          <Name>Tag_3</Name>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="32" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="33" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Tags.PlcTag>
-      <SW.Tags.PlcTag ID="34" CompositionName="Tags">
-        <AttributeList>
-          <DataTypeName>Bool</DataTypeName>
-          <ExternalAccessible>true</ExternalAccessible>
-          <ExternalVisible>true</ExternalVisible>
-          <ExternalWritable>true</ExternalWritable>
-          <LogicalAddress>%M2.0</LogicalAddress>
-          <Name>IR_0</Name>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="35" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="36" CompositionName="Items">
                 <AttributeList>
                   <Culture>en-US</Culture>
                   <Text />
