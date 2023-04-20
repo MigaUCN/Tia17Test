@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V17" />
   <DocumentInfo>
-    <Created>2023-04-20T07:40:07.4685163Z</Created>
+    <Created>2023-04-20T07:49:13.2335645Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -188,7 +188,7 @@
       </Symbol>
     </Access>
     <Call UId="23">
-      <CallInfo Name="NormScale" BlockType="FC">
+      <CallInfo Name="NormScalev2" BlockType="FC">
         <Parameter Name="Analog_Input" Section="Input" Type="UInt" />
         <Parameter Name="Analog_value" Section="Output" Type="Real" />
       </CallInfo>
