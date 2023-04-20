@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V17" />
   <DocumentInfo>
-    <Created>2023-04-19T10:28:57.0420288Z</Created>
+    <Created>2023-04-20T08:18:11.6465888Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -52,8 +52,7 @@
     </Member>
   </Section>
   <Section Name="Temp">
-    <Member Name="input_int" Datatype="Int" />
-    <Member Name="output_real" Datatype="Real" />
+    <Member Name="Analog_value" Datatype="Real" />
   </Section>
   <Section Name="Constant" />
 </Sections></Interface>
@@ -82,22 +81,23 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="Tag_1" />
+        <Component Name="IB_0" SliceAccessModifier="x0" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="Tag_2" />
+        <Component Name="IB_0" SliceAccessModifier="x1" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
       <Symbol>
-        <Component Name="IR_0" />
+        <Component Name="Internal" />
+        <Component Name="Start" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
-        <Component Name="Tag_3" />
+        <Component Name="QB_0" SliceAccessModifier="x0" />
       </Symbol>
     </Access>
     <Part Name="Contact" UId="25" />
@@ -177,37 +177,34 @@
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
-    <Access Scope="LocalVariable" UId="21">
+    <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="input_int" />
+        <Component Name="AIW_64" />
       </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="22">
       <Symbol>
-        <Component Name="output_real" />
+        <Component Name="Analog_value" />
       </Symbol>
     </Access>
     <Call UId="23">
-      <CallInfo Name="FB_Testblok" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="24">
-          <Component Name="FB_Testblok_DB" />
-        </Instance>
-        <Parameter Name="Input_Int" Section="Input" Type="Int" />
-        <Parameter Name="Output_Real" Section="Output" Type="Real" />
+      <CallInfo Name="NormScalev2" BlockType="FC">
+        <Parameter Name="Analog_Input_uint" Section="Input" Type="UInt" />
+        <Parameter Name="Analog_value" Section="Output" Type="Real" />
       </CallInfo>
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="25">
+    <Wire UId="24">
       <Powerrail />
       <NameCon UId="23" Name="en" />
     </Wire>
-    <Wire UId="26">
+    <Wire UId="25">
       <IdentCon UId="21" />
-      <NameCon UId="23" Name="Input_Int" />
+      <NameCon UId="23" Name="Analog_Input_uint" />
     </Wire>
-    <Wire UId="27">
-      <NameCon UId="23" Name="Output_Real" />
+    <Wire UId="26">
+      <NameCon UId="23" Name="Analog_value" />
       <IdentCon UId="22" />
     </Wire>
   </Wires>
