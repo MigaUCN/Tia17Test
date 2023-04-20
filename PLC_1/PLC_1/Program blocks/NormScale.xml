@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V17" />
   <DocumentInfo>
-    <Created>2023-04-20T07:49:13.2335645Z</Created>
+    <Created>2023-04-20T07:49:49.7334852Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -31,7 +31,7 @@
       </Product>
     </InstalledProducts>
   </DocumentInfo>
-  <SW.Blocks.OB ID="0">
+  <SW.Blocks.FC ID="0">
     <AttributeList>
       <AutoNumber>true</AutoNumber>
       <HeaderAuthor />
@@ -40,29 +40,41 @@
       <HeaderVersion>0.1</HeaderVersion>
       <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
   <Section Name="Input">
-    <Member Name="Initial_Call" Datatype="Bool" Accessibility="Public" Informative="true">
-      <Comment>
-        <MultiLanguageText Lang="en-US">Initial call of this OB</MultiLanguageText>
-      </Comment>
-    </Member>
-    <Member Name="Remanence" Datatype="Bool" Accessibility="Public" Informative="true">
-      <Comment>
-        <MultiLanguageText Lang="en-US">=True, if remanent data are available</MultiLanguageText>
-      </Comment>
-    </Member>
+    <Member Name="Analog_Input" Datatype="UInt" Accessibility="Public" />
   </Section>
+  <Section Name="Output">
+    <Member Name="Analog_value" Datatype="Real" Accessibility="Public" />
+  </Section>
+  <Section Name="InOut" />
   <Section Name="Temp">
-    <Member Name="Analog_value" Datatype="Real" />
+    <Member Name="norm_analog_input" Datatype="Real" />
   </Section>
-  <Section Name="Constant" />
+  <Section Name="Constant">
+    <Member Name="Upper_int" Datatype="UInt" Accessibility="Public">
+      <StartValue>27648</StartValue>
+    </Member>
+    <Member Name="Lower_int" Datatype="UInt" Accessibility="Public">
+      <StartValue>0</StartValue>
+    </Member>
+    <Member Name="Upper_Real" Datatype="Real" Accessibility="Public">
+      <StartValue>100.0</StartValue>
+    </Member>
+    <Member Name="Lower_Real" Datatype="Real" Accessibility="Public">
+      <StartValue>0.0</StartValue>
+    </Member>
+  </Section>
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" Accessibility="Public" />
+  </Section>
 </Sections></Interface>
       <IsIECCheckEnabled>false</IsIECCheckEnabled>
       <MemoryLayout>Optimized</MemoryLayout>
-      <Name>Main</Name>
+      <Name>NormScalev2</Name>
       <Number>1</Number>
       <ProgrammingLanguage>LAD</ProgrammingLanguage>
-      <SecondaryType>ProgramCycle</SecondaryType>
       <SetENOAutomatically>false</SetENOAutomatically>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
     </AttributeList>
     <ObjectList>
       <MultilingualText ID="1" CompositionName="Comment">
@@ -79,72 +91,87 @@
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
-    <Access Scope="GlobalVariable" UId="21">
+    <Access Scope="LocalConstant" UId="21">
+      <Constant Name="Lower_int" />
+    </Access>
+    <Access Scope="LocalVariable" UId="22">
       <Symbol>
-        <Component Name="IB_0" SliceAccessModifier="x0" />
+        <Component Name="Analog_Input" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="22">
+    <Access Scope="LocalConstant" UId="23">
+      <Constant Name="Upper_int" />
+    </Access>
+    <Access Scope="LocalVariable" UId="24">
       <Symbol>
-        <Component Name="IB_0" SliceAccessModifier="x1" />
+        <Component Name="norm_analog_input" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
+    <Access Scope="LocalConstant" UId="25">
+      <Constant Name="Lower_Real" />
+    </Access>
+    <Access Scope="LocalVariable" UId="26">
       <Symbol>
-        <Component Name="Internal" />
-        <Component Name="Start" />
+        <Component Name="norm_analog_input" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="LocalConstant" UId="27">
+      <Constant Name="Upper_Real" />
+    </Access>
+    <Access Scope="LocalVariable" UId="28">
       <Symbol>
-        <Component Name="QB_0" SliceAccessModifier="x0" />
+        <Component Name="Analog_value" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="25" />
-    <Part Name="Contact" UId="26" />
-    <Part Name="Contact" UId="27" />
-    <Part Name="O" UId="28">
-      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    <Part Name="Normalize" UId="29" DisabledENO="true">
+      <TemplateValue Name="SrcType" Type="Type">UInt</TemplateValue>
+      <TemplateValue Name="DestType" Type="Type">Real</TemplateValue>
     </Part>
-    <Part Name="Coil" UId="29" />
+    <Part Name="Scale_X" UId="30" DisabledENO="true">
+      <TemplateValue Name="SrcType" Type="Type">Real</TemplateValue>
+      <TemplateValue Name="DestType" Type="Type">Real</TemplateValue>
+    </Part>
   </Parts>
   <Wires>
-    <Wire UId="30">
-      <Powerrail />
-      <NameCon UId="25" Name="in" />
-      <NameCon UId="27" Name="in" />
-    </Wire>
     <Wire UId="31">
-      <IdentCon UId="21" />
-      <NameCon UId="25" Name="operand" />
+      <Powerrail />
+      <NameCon UId="29" Name="en" />
     </Wire>
     <Wire UId="32">
-      <NameCon UId="25" Name="out" />
-      <NameCon UId="26" Name="in" />
+      <IdentCon UId="21" />
+      <NameCon UId="29" Name="min" />
     </Wire>
     <Wire UId="33">
       <IdentCon UId="22" />
-      <NameCon UId="26" Name="operand" />
+      <NameCon UId="29" Name="value" />
     </Wire>
     <Wire UId="34">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="28" Name="in1" />
+      <IdentCon UId="23" />
+      <NameCon UId="29" Name="max" />
     </Wire>
     <Wire UId="35">
-      <IdentCon UId="23" />
-      <NameCon UId="27" Name="operand" />
+      <NameCon UId="29" Name="eno" />
+      <NameCon UId="30" Name="en" />
     </Wire>
     <Wire UId="36">
-      <NameCon UId="27" Name="out" />
-      <NameCon UId="28" Name="in2" />
+      <NameCon UId="29" Name="out" />
+      <IdentCon UId="24" />
     </Wire>
     <Wire UId="37">
-      <NameCon UId="28" Name="out" />
-      <NameCon UId="29" Name="in" />
+      <IdentCon UId="25" />
+      <NameCon UId="30" Name="min" />
     </Wire>
     <Wire UId="38">
-      <IdentCon UId="24" />
-      <NameCon UId="29" Name="operand" />
+      <IdentCon UId="26" />
+      <NameCon UId="30" Name="value" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="27" />
+      <NameCon UId="30" Name="max" />
+    </Wire>
+    <Wire UId="40">
+      <NameCon UId="30" Name="out" />
+      <IdentCon UId="28" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -175,40 +202,7 @@
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="8" CompositionName="CompileUnits">
         <AttributeList>
-          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
-  <Parts>
-    <Access Scope="GlobalVariable" UId="21">
-      <Symbol>
-        <Component Name="AIW_64" />
-      </Symbol>
-    </Access>
-    <Access Scope="LocalVariable" UId="22">
-      <Symbol>
-        <Component Name="Analog_value" />
-      </Symbol>
-    </Access>
-    <Call UId="23">
-      <CallInfo Name="NormScalev2" BlockType="FC">
-        <Parameter Name="Analog_Input" Section="Input" Type="UInt" />
-        <Parameter Name="Analog_value" Section="Output" Type="Real" />
-      </CallInfo>
-    </Call>
-  </Parts>
-  <Wires>
-    <Wire UId="24">
-      <Powerrail />
-      <NameCon UId="23" Name="en" />
-    </Wire>
-    <Wire UId="25">
-      <IdentCon UId="21" />
-      <NameCon UId="23" Name="Analog_Input" />
-    </Wire>
-    <Wire UId="26">
-      <NameCon UId="23" Name="Analog_value" />
-      <IdentCon UId="22" />
-    </Wire>
-  </Wires>
-</FlgNet></NetworkSource>
+          <NetworkSource />
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
@@ -234,44 +228,16 @@
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="D" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource />
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
+      <MultilingualText ID="D" CompositionName="Title">
         <ObjectList>
-          <MultilingualText ID="E" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="F" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="10" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="11" CompositionName="Items">
-                <AttributeList>
-                  <Culture>en-US</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <MultilingualText ID="12" CompositionName="Title">
-        <ObjectList>
-          <MultilingualTextItem ID="13" CompositionName="Items">
+          <MultilingualTextItem ID="E" CompositionName="Items">
             <AttributeList>
               <Culture>en-US</Culture>
-              <Text>"Main Program Sweep (Cycle)"</Text>
+              <Text />
             </AttributeList>
           </MultilingualTextItem>
         </ObjectList>
       </MultilingualText>
     </ObjectList>
-  </SW.Blocks.OB>
+  </SW.Blocks.FC>
 </Document>
